@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: simplepdl.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: simplepdl.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: simplepdl.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: simplepdl.xtext.parser.antlr.internal,
+ simplepdl.xtext.simplePDL,
+ simplepdl.xtext.serializer,
+ simplepdl.xtext.simplePDL.impl,
+ simplepdl.xtext.validation,
+ simplepdl.xtext,
+ simplepdl.xtext.parser.antlr,
+ simplepdl.xtext.scoping,
+ simplepdl.xtext.services,
+ simplepdl.xtext.simplePDL.util,
+ simplepdl.xtext.generator
+Import-Package: org.apache.log4j

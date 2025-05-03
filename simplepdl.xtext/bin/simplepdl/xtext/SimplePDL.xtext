@@ -1,0 +1,67 @@
+grammar simplepdl.xtext.SimplePDL with org.eclipse.xtext.common.Terminals
+
+generate simplePDL "http://www.xtext.simplepdl/SimplePDL"
+
+Model:
+	processes+=Process*;
+	
+
+Process:
+    'process' name=ID '{'
+        ('description' description=STRING)?
+        (workdefinitions+=WorkDefinition)*
+        (worksequences+=WorkSequence)*
+        (resources+=Resource)*
+    '}'
+;
+
+WorkDefinition:
+    'workdefinition' name=ID '{'
+        ('description' description=STRING)?
+        'assignedTo' assignedTo+=[Human|ID] (',' assignedTo+=[Human|ID])*
+        ('requiredMaterial' requiredMaterials+=RequiredMaterial)*
+        ('linksToPredecessor' predecessor+=[WorkDefinition|ID] (',' predecessor+=[WorkDefinition|ID])*
+         '[' 'type' '=' predType=WorkSequenceType ']' )?
+        ('linksToSuccessor' successor+=[WorkDefinition|ID] (',' successor+=[WorkDefinition|ID])*
+         '[' 'type' '=' succType=WorkSequenceType ']' )?
+    '}'
+;
+
+WorkSequence:
+    'worksequence' name=ID '{'
+        'predecessor' predecessor=[WorkDefinition|ID]
+        'successor' successor=[WorkDefinition|ID]
+        'type' type=WorkSequenceType
+    '}'
+;
+
+RequiredMaterial:
+    '[' 'material' material=[Material|ID]
+      ('quantity' '=' quantity=INT)?
+    ']'
+;
+
+Resource:
+    Human | Material
+;
+
+Human:
+    'human' name=ID '{'
+        'email' email=STRING
+        'role' role=STRING
+    '}'
+;
+
+
+Material:
+    'material' name=ID '{'
+        'unit' unit=STRING
+    '}'
+;
+
+enum WorkSequenceType:
+    startToStart   = 'startToStart' |
+    finishToStart  = 'finishToStart' |
+    startToFinish  = 'startToFinish' |
+    finishToFinish = 'finishToFinish'
+;
