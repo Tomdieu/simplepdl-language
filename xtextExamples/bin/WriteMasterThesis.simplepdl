@@ -1,0 +1,115 @@
+process WriteMasterThesis {
+    description "Master thesis workflow"
+
+    // Work Definitions
+    workdefinition DefineTopicProposal {
+        assignedTo StudentResearcher
+    }
+
+    workdefinition ConductResearchLiteratureReview {
+        assignedTo StudentResearcher
+        requiredMaterial [ material ResearchDatabases quantity=1 ]
+        requiredMaterial [ material CitationManagerSoftware quantity=1 ]
+    }
+
+    workdefinition WriteFirstDraftChapters {
+        assignedTo StudentResearcher
+        requiredMaterial [ material WordProcessorLaTeX quantity=1 ]
+        requiredMaterial [ material CitationManagerSoftware quantity=1 ]
+    }
+
+    workdefinition SupervisorReviewRevisionCycle {
+        assignedTo StudentResearcher, PrimarySupervisor
+        requiredMaterial [ material WordProcessorLaTeX quantity=1 ]
+    }
+
+    workdefinition FormatThesis {
+        assignedTo StudentResearcher
+        requiredMaterial [ material WordProcessorLaTeX quantity=1 ]
+        requiredMaterial [ material UniversityThesisTemplate quantity=1 ]
+    }
+
+    workdefinition CommitteeReviewDefense {
+        assignedTo CommitteeMember, StudentResearcher
+    }
+
+    workdefinition FinalRevisionsSubmission {
+        assignedTo StudentResearcher
+        requiredMaterial [ material WordProcessorLaTeX quantity=1 ]
+        requiredMaterial [ material ThesisSubmissionPortal quantity=1 ]
+    }
+
+    // Work Sequences
+    worksequence Proposal_Research {
+        predecessor DefineTopicProposal
+        successor ConductResearchLiteratureReview
+        type finishToStart
+    }
+
+    worksequence Research_Draft {
+        predecessor ConductResearchLiteratureReview
+        successor WriteFirstDraftChapters
+        type finishToStart
+    }
+
+    worksequence Draft_Review {
+        predecessor WriteFirstDraftChapters
+        successor SupervisorReviewRevisionCycle
+        type finishToStart
+    }
+
+    worksequence Review_Format {
+        predecessor SupervisorReviewRevisionCycle
+        successor FormatThesis
+        type finishToStart
+    }
+
+     worksequence Format_Defense {
+        predecessor FormatThesis
+        successor CommitteeReviewDefense
+        type finishToStart
+    }
+
+    worksequence Defense_Submit {
+        predecessor CommitteeReviewDefense
+        successor FinalRevisionsSubmission
+        type finishToStart
+    }
+
+    // Resources: Humans
+    human StudentResearcher {
+        email   "ivan.tomdieu@facsciences-uy1.cm"
+        role    "Author"
+    }
+
+    human PrimarySupervisor {
+        email   "supervisor@university.edu"
+        role    "Advisor"
+    }
+
+    human CommitteeMember {
+        email   "committee@university.edu"
+        role    "Examiner"
+    }
+
+    // Resources: Materials
+    material ResearchDatabases {
+        unit "subscription access"
+    }
+
+    material CitationManagerSoftware {
+        unit "license"
+    }
+
+    material WordProcessorLaTeX {
+        unit "license"
+    }
+
+    material UniversityThesisTemplate {
+        unit "document"
+    }
+
+    material ThesisSubmissionPortal {
+        unit "web service access"
+    }
+}

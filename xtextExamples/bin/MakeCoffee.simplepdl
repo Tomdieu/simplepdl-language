@@ -1,0 +1,70 @@
+process MakeCoffee {
+    description ""  // no description provided
+
+    // Work Definitions
+    workdefinition GatherItems {
+        assignedTo Ivantom
+    }
+
+    workdefinition PrepareMachine {
+        assignedTo Ivantom
+        requiredMaterial [ material GroundCoffeeBeans quantity=15 ]
+        requiredMaterial [ material TapWater quantity=300 ]
+        requiredMaterial [ material PaperCoffeeFilter quantity=1 ]
+    }
+
+    workdefinition BrewCoffee {
+        assignedTo Ivantom
+        requiredMaterial [ material FilterCoffeeMachine quantity=1 ]
+    }
+
+    workdefinition PourCoffee {
+        assignedTo Ivantom
+        requiredMaterial [ material CeramicMug quantity=1 ]
+    }
+
+    // Work Sequences
+    worksequence Gather_to_Prepare {
+        predecessor GatherItems
+        successor PrepareMachine
+        type finishToStart
+    }
+
+    worksequence Prepare_to_Brew {
+        predecessor PrepareMachine
+        successor BrewCoffee
+        type finishToStart
+    }
+
+    worksequence Brew_to_Pour {
+        predecessor BrewCoffee
+        successor PourCoffee
+        type finishToStart
+    }
+    // Resources: Human
+    human Ivantom {
+        email   ""           // not specified
+        role    "Coffee Maker"
+    }
+
+    // Resources: Materials
+    material FilterCoffeeMachine {
+        unit "device"
+    }
+
+    material PaperCoffeeFilter {
+        unit "piece"
+    }
+
+    material GroundCoffeeBeans {
+        unit "gram"
+    }
+
+    material TapWater {
+        unit "ml"
+    }
+
+    material CeramicMug {
+        unit "item"
+    }
+}
