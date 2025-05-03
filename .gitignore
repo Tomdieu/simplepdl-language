@@ -1,0 +1,20 @@
+# Eclipse specific files
+.metadata/
+.settings/
+.classpath
+.project
+
+# Build artifacts
+target/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# OS generated files
+.DS_Store
+Thumbs.db
