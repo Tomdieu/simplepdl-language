@@ -3,5 +3,61 @@ import 'simplepdl.ecore'
 package simplepdl
 
 
+-- 1. Process Name Must Not Be Empty
+context Process
+inv NameNotEmpty: not self.name.oclIsUndefined() and self.name <> ''
+
+-- 2. Resource Name Must Not Be Empty
+context Resource
+inv NameNotEmpty: not self.name.oclIsUndefined() and self.name <> ''
+
+-- 3. Human Must Have At Least One Assigned Task
+context Human
+inv AtLeastOneAssignedTask: not self.asignedTasks->isEmpty()
+
+-- 4. WorkDefinition Must Be Assigned to At Least One Human
+context WorkDefinition
+inv AtLeastOneHuman: not self.assignedTo->isEmpty()
+
+-- 5. WorkSequence Must Have Predecessor and Successor
+context WorkSequence
+inv PredecessorAndSuccessor: 
+    not self.predecessor.oclIsUndefined() and 
+    not self.successor.oclIsUndefined()
+
+-- 6. WorkSequence Must Have a Link Type
+context WorkSequence
+inv LinkTypeDefined: not self.linkType.oclIsUndefined()
+
+-- 7. RequiredMaterial Quantity Must Be Positive
+context RequiredMaterial
+inv PositiveQuantity: self.quantity > 0
+
+-- 8. RequiredMaterial Must Reference a Material
+context RequiredMaterial
+inv MaterialDefined: not self.material.oclIsUndefined()
+
+-- 9. No Duplicate Resource Names in a Process
+context Process
+inv UniqueResourceNames: 
+    self.resources->isUnique(r | r.name)
+
+-- 10. No Duplicate WorkDefinition Names in a Process
+context Process
+inv UniqueWorkDefinitionNames:
+    self.processElements->select(e | e.oclIsTypeOf(WorkDefinition))->isUnique(wd | wd.name)
+
+-- 11. No Self-Referencing WorkSequence
+context WorkSequence
+inv NotSelfReferencing: self.predecessor <> self.successor
+
+-- 12. Each Human's AssignedTasks Must Include Only WorkDefinitions in the Same Process
+context Human
+inv AssignedTasksInSameProcess:
+    Process.allInstances()->exists(p | 
+        p.resources->includes(self) and 
+        self.asignedTasks->forAll(wd | p.processElements->includes(wd))
+    )
+
 
 endpackage
