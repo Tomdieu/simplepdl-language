@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Automatic-Module-Name: simplepdl.metamodel
+Bundle-Name: %pluginName
+Bundle-SymbolicName: simplepdl.metamodel;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-17
+Export-Package: simplepdl.metamodel.simplepdl,
+ simplepdl.metamodel.simplepdl.impl,
+ simplepdl.metamodel.simplepdl.util
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.core.runtime
+Bundle-ActivationPolicy: lazy

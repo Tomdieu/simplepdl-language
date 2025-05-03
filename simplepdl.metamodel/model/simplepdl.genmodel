@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/simplepdl.metamodel/src-gen" creationIcons="false"
+    editDirectory="/simplepdl.metamodel.edit/src-gen" editorDirectory="/simplepdl.metamodel.editor/src-gen"
+    modelPluginID="simplepdl.metamodel" modelName="Simplepdl" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="17.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>simplepdl.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Simplepdl" basePackage="simplepdl.metamodel" disposableProviderFactory="true"
+      ecorePackage="simplepdl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="simplepdl.ecore#//WorkSequenceType">
+      <genEnumLiterals ecoreEnumLiteral="simplepdl.ecore#//WorkSequenceType/startToStart"/>
+      <genEnumLiterals ecoreEnumLiteral="simplepdl.ecore#//WorkSequenceType/finishToStart"/>
+      <genEnumLiterals ecoreEnumLiteral="simplepdl.ecore#//WorkSequenceType/startToFinish"/>
+      <genEnumLiterals ecoreEnumLiteral="simplepdl.ecore#//WorkSequenceType/finishToFInish"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="simplepdl.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Resource/name"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//Process">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Process/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplepdl.ecore#//Process/processElements"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Process/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplepdl.ecore#//Process/resources"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//Material">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Material/unit"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//WorkDefinition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/linksToSuccessor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/linksToPredecessor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/requiredmaterial"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/assignedTo"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//WorkSequence">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//WorkSequence/linkType"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkSequence/predecessor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkSequence/successor"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//Human">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Human/email"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//Human/role"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//Human/asignedTasks"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="simplepdl.ecore#//ProcessElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//ProcessElement/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//ProcessElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="simplepdl.ecore#//RequiredMaterial">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//RequiredMaterial/material"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//RequiredMaterial/quantity"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
