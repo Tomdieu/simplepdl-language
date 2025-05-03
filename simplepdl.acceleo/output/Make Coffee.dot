@@ -1,0 +1,10 @@
+ digraph "Make_Coffee" {
+            "Gather_Items";
+            "Prepare_Machine";
+            "Brew_Coffee";
+            "Pour_Coffee";
+
+            "Gather_Items" -> "Prepare_Machine";
+            "Prepare_Machine" -> "Brew_Coffee";
+            "Brew_Coffee" -> "Pour_Coffee";
+}

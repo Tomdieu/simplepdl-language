@@ -1,0 +1,195 @@
+[comment encoding = UTF-8 /]
+[module generate('http://www.example.org/simplepdl')]
+
+
+[template public generateElement(aProcess : Process)]
+[comment @main/]
+[file (aProcess.name + '.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>[aProcess.name/] Process Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333366; }
+        .process { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; }
+        .work-definition { background-color: #f9f9f9; padding: 10px; margin: 10px 0; border-left: 5px solid #4CAF50; }
+        .work-sequence { background-color: #f5f5f5; padding: 5px; margin: 5px 0; border-left: 5px solid #2196F3; }
+        .resource { background-color: #fff8e1; padding: 8px; margin: 8px 0; border-left: 5px solid #FF9800; }
+        .material { background-color: #e8f5e9; padding: 8px; margin: 8px 0; border-left: 5px solid #8BC34A; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>[aProcess.name/] Process</h1>
+    [if (aProcess.description <> null)]
+    <p><strong>Description:</strong> [aProcess.description/]</p>
+    [/if]
+    
+    <div class="process">
+        <h2>Work Definitions</h2>
+        <table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Assigned To</th>
+        <th>Required Materials</th>
+        <th>Dependencies</th>
+    </tr>
+    [for (element : ProcessElement | aProcess.processElements)]
+        [if (element.oclIsTypeOf(WorkDefinition))]
+            [let wd : WorkDefinition = element.oclAsType(WorkDefinition)]
+            <tr>
+                <td>[wd.name/]</td>
+                <td>
+                    [if (wd.description <> null)]
+                        [wd.description/]
+                    [/if]
+                </td>
+                <td>
+                    [if (not wd.assignedTo->isEmpty())]
+                        [for (human : Human | wd.assignedTo) separator(', ')]
+                            [human.name/] ([human.role/])
+                        [/for]
+                    [/if]
+                </td>
+                <td>
+                    [if (not wd.requiredmaterial->isEmpty())]
+                        <ul>
+                        [for (req : RequiredMaterial | wd.requiredmaterial)]
+                            <li>[req.quantity/] [req.material.unit/] of [req.material.name/]</li>
+                        [/for]
+                        </ul>
+                    [/if]
+                </td>
+                <td>
+                    [if (not wd.linksToSuccessor->isEmpty())]
+                        <ul>
+                        [for (seq : WorkSequence | wd.linksToSuccessor)]
+                            <li>When this task 
+                                [if (seq.linkType = WorkSequenceType::finishToStart or seq.linkType = WorkSequenceType::finishToFInish)]finishes[else]starts[/if], 
+                                task "[seq.successor.name/]" can 
+                                [if (seq.linkType = WorkSequenceType::finishToStart or seq.linkType = WorkSequenceType::startToStart)]start[else]finish[/if]
+                            </li>
+                        [/for]
+                        </ul>
+                    [/if]
+                </td>
+            </tr>
+            [/let]
+        [/if]
+    [/for]
+</table>
+        
+        <h2>Work Sequences</h2>
+        <table>
+    <tr>
+        <th>Name</th>
+        <th>Predecessor</th>
+        <th>Successor</th>
+        <th>Condition</th>
+    </tr>
+    [for (element : ProcessElement | aProcess.processElements)]
+        [if (element.oclIsTypeOf(WorkSequence))]
+            [let ws : WorkSequence = element.oclAsType(WorkSequence)]
+            <tr>
+                <td>[ws.name/]</td>
+                <td>[ws.predecessor.name/]</td>
+                <td>[ws.successor.name/]</td>
+                <td>
+                    [if (ws.linkType = WorkSequenceType::finishToStart)]
+                        Finish to Start
+                    [elseif (ws.linkType = WorkSequenceType::startToStart)]
+                        Start to Start
+                    [elseif (ws.linkType = WorkSequenceType::startToFinish)]
+                        Start to Finish
+                    [elseif (ws.linkType = WorkSequenceType::finishToFInish)]
+                        Finish to Finish
+                    [/if]
+                </td>
+            </tr>
+            [/let]
+        [/if]
+    [/for]
+</table>
+        
+        <h2>Resources</h2>
+        <h3>Human Resources</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Assigned Tasks</th>
+            </tr>
+            [for (resource : Resource | aProcess.resources)]
+                [if (resource.oclIsTypeOf(Human))]
+                    [let human : Human = resource.oclAsType(Human)]
+                    <tr>
+                        <td>[human.name/]</td>
+                        <td>[human.role/]</td>
+                        <td>[human.email/]</td>
+                        <td>
+                            [for (task : WorkDefinition | human.asignedTasks) separator(', ')]
+                                [task.name/]
+                            [/for]
+                        </td>
+                    </tr>
+                    [/let]
+                [/if]
+            [/for]
+        </table>
+        
+        <h3>Material Resources</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Unit</th>
+                <th>Used In</th>
+            </tr>
+            [for (resource : Resource | aProcess.resources)]
+                [if (resource.oclIsTypeOf(Material))]
+                    [let material : Material = resource.oclAsType(Material)]
+                    <tr>
+                        <td>[material.name/]</td>
+                        <td>[material.unit/]</td>
+                        <td>
+                            [for (wd : WorkDefinition | aProcess.processElements->select(e | e.oclIsTypeOf(WorkDefinition)))]
+                                [for (req : RequiredMaterial | wd.oclAsType(WorkDefinition).requiredmaterial)]
+                                    [if (req.material = material)]
+                                        [wd.name/] ([req.quantity/]),
+                                    [/if]
+                                [/for]
+                            [/for]
+                        </td>
+                    </tr>
+                    [/let]
+                [/if]
+            [/for]
+        </table>
+    </div>
+
+
+</body>
+</html>
+[/file]
+
+[file (aProcess.name.concat('.dot'), false, 'UTF-8')]
+ digraph "[aProcess.name.replaceAll(' ', '_')/]" {
+    [for (element : ProcessElement | aProcess.processElements)]
+        [if (element.oclIsTypeOf(WorkDefinition))]
+            "[element.name.replaceAll(' ', '_')/]";
+        [/if]
+    [/for]
+
+    [for (element : ProcessElement | aProcess.processElements)]
+        [if (element.oclIsTypeOf(WorkSequence))]
+            "[element.oclAsType(WorkSequence).predecessor.name.replaceAll(' ', '_')/]" -> "[element.oclAsType(WorkSequence).successor.name.replaceAll(' ', '_')/]";
+        [/if]
+    [/for]
+}
+[/file]
+[/template]

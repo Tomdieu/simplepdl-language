@@ -1,0 +1,16 @@
+ digraph "Write_Master_Thesis" {
+            "Define_Topic_&_Proposal";
+            "Conduct_Research_&_Literature_Review";
+            "Write_First_Draft_(Chapters)";
+            "Supervisor_Review_&_Revision_Cycle";
+            "Format_Thesis";
+            "Committee_Review_&_Defense";
+            "Final_Revisions_&_Submission";
+
+            "Define_Topic_&_Proposal" -> "Conduct_Research_&_Literature_Review";
+            "Conduct_Research_&_Literature_Review" -> "Write_First_Draft_(Chapters)";
+            "Write_First_Draft_(Chapters)" -> "Supervisor_Review_&_Revision_Cycle";
+            "Supervisor_Review_&_Revision_Cycle" -> "Format_Thesis";
+            "Format_Thesis" -> "Committee_Review_&_Defense";
+            "Committee_Review_&_Defense" -> "Final_Revisions_&_Submission";
+}

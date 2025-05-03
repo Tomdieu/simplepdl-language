@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Write Master Thesis Process Details</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1, h2, h3 { color: #333366; }
+        .process { border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; }
+        .work-definition { background-color: #f9f9f9; padding: 10px; margin: 10px 0; border-left: 5px solid #4CAF50; }
+        .work-sequence { background-color: #f5f5f5; padding: 5px; margin: 5px 0; border-left: 5px solid #2196F3; }
+        .resource { background-color: #fff8e1; padding: 8px; margin: 8px 0; border-left: 5px solid #FF9800; }
+        .material { background-color: #e8f5e9; padding: 8px; margin: 8px 0; border-left: 5px solid #8BC34A; }
+        table { border-collapse: collapse; width: 100%; margin: 10px 0; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Write Master Thesis Process</h1>
+    
+    <div class="process">
+        <h2>Work Definitions</h2>
+        <table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Assigned To</th>
+        <th>Required Materials</th>
+        <th>Dependencies</th>
+    </tr>
+            <tr>
+                <td>Define Topic & Proposal</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+                </td>
+                <td>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Conduct Research & Literature Review" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Conduct Research & Literature Review</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+                </td>
+                <td>
+                        <ul>
+                            <li>1 subscription access of Research Databases</li>
+                            <li>1 license of Citation Manager Software</li>
+                        </ul>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Write First Draft (Chapters)" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Write First Draft (Chapters)</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+                </td>
+                <td>
+                        <ul>
+                            <li>1 license of Word Processor/LaTeX</li>
+                            <li>1 license of Citation Manager Software</li>
+                        </ul>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Supervisor Review & Revision Cycle" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Supervisor Review & Revision Cycle</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+,                             Primary Supervisor (Advisor)
+                </td>
+                <td>
+                        <ul>
+                            <li>1 license of Word Processor/LaTeX</li>
+                        </ul>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Format Thesis" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Format Thesis</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+                </td>
+                <td>
+                        <ul>
+                            <li>1 license of Word Processor/LaTeX</li>
+                            <li>1 document of University Thesis Template</li>
+                        </ul>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Committee Review & Defense" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Committee Review & Defense</td>
+                <td>
+                </td>
+                <td>
+                            Committee Member (Examiner)
+,                             Student Researcher (Author)
+                </td>
+                <td>
+                </td>
+                <td>
+                        <ul>
+                            <li>When this task 
+                                finishes, 
+                                task "Final Revisions & Submission" can 
+                                start
+                            </li>
+                        </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>Final Revisions & Submission</td>
+                <td>
+                </td>
+                <td>
+                            Student Researcher (Author)
+                </td>
+                <td>
+                        <ul>
+                            <li>1 license of Word Processor/LaTeX</li>
+                            <li>1 web service access of Thesis Submission Portal</li>
+                        </ul>
+                </td>
+                <td>
+                </td>
+            </tr>
+</table>
+        
+        <h2>Work Sequences</h2>
+        <table>
+    <tr>
+        <th>Name</th>
+        <th>Predecessor</th>
+        <th>Successor</th>
+        <th>Condition</th>
+    </tr>
+            <tr>
+                <td>Proposal_Research</td>
+                <td>Define Topic & Proposal</td>
+                <td>Conduct Research & Literature Review</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+            <tr>
+                <td>Research_Draft</td>
+                <td>Conduct Research & Literature Review</td>
+                <td>Write First Draft (Chapters)</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+            <tr>
+                <td>Draft_Review</td>
+                <td>Write First Draft (Chapters)</td>
+                <td>Supervisor Review & Revision Cycle</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+            <tr>
+                <td>Review_Format</td>
+                <td>Supervisor Review & Revision Cycle</td>
+                <td>Format Thesis</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+            <tr>
+                <td>Format_Defense</td>
+                <td>Format Thesis</td>
+                <td>Committee Review & Defense</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+            <tr>
+                <td>Defense_Submit</td>
+                <td>Committee Review & Defense</td>
+                <td>Final Revisions & Submission</td>
+                <td>
+                        Finish to Start
+                </td>
+            </tr>
+</table>
+        
+        <h2>Resources</h2>
+        <h3>Human Resources</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Assigned Tasks</th>
+            </tr>
+                    <tr>
+                        <td>Student Researcher</td>
+                        <td>Author</td>
+                        <td></td>
+                        <td>
+                                Define Topic & Proposal
+,                                 Conduct Research & Literature Review
+,                                 Write First Draft (Chapters)
+,                                 Supervisor Review & Revision Cycle
+,                                 Format Thesis
+,                                 Committee Review & Defense
+,                                 Final Revisions & Submission
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Primary Supervisor</td>
+                        <td>Advisor</td>
+                        <td></td>
+                        <td>
+                                Supervisor Review & Revision Cycle
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Committee Member</td>
+                        <td>Examiner</td>
+                        <td></td>
+                        <td>
+                                Committee Review & Defense
+                        </td>
+                    </tr>
+        </table>
+        
+        <h3>Material Resources</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Unit</th>
+                <th>Used In</th>
+            </tr>
+                    <tr>
+                        <td>Research Databases</td>
+                        <td>subscription access</td>
+                        <td>
+                                        Conduct Research & Literature Review (1),
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Citation Manager Software</td>
+                        <td>license</td>
+                        <td>
+                                        Conduct Research & Literature Review (1),
+                                        Write First Draft (Chapters) (1),
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Word Processor/LaTeX</td>
+                        <td>license</td>
+                        <td>
+                                        Write First Draft (Chapters) (1),
+                                        Supervisor Review & Revision Cycle (1),
+                                        Format Thesis (1),
+                                        Final Revisions & Submission (1),
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>University Thesis Template</td>
+                        <td>document</td>
+                        <td>
+                                        Format Thesis (1),
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thesis Submission Portal</td>
+                        <td>web service access</td>
+                        <td>
+                                        Final Revisions & Submission (1),
+                        </td>
+                    </tr>
+        </table>
+    </div>
+
+
+</body>
+</html>
