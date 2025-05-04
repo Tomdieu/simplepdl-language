@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://www.example.org/simplepdl" name="Make Coffe">
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Gather Items" linksToSuccessor="//@processElements.4" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Prepare Machine" linksToSuccessor="//@processElements.5" linksToPredecessor="//@processElements.4" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Brew Coffee" linksToSuccessor="//@processElements.6" linksToPredecessor="//@processElements.5" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Pour Coffee" linksToPredecessor="//@processElements.6" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkSequence" name="Gather to Prepare" predecessor="//@processElements.0" successor="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:WorkSequence" name="Prepare to Brew" predecessor="//@processElements.1" successor="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:WorkSequence" name="Brew to Pour" predecessor="//@processElements.2" successor="//@processElements.3"/>
+  <resources xsi:type="simplepdl:Human" name="Tomdieu" role="Coffee Maker" asignedTasks="//@processElements.0 //@processElements.1 //@processElements.2 //@processElements.3"/>
+  <resources xsi:type="simplepdl:Material" name="Filter Coffee Machine" unit="device"/>
+  <resources xsi:type="simplepdl:Material" name="Paper Coffee Filter" unit="piece"/>
+  <resources xsi:type="simplepdl:Material" name="Ground Coffee Beans" unit="gram"/>
+  <resources xsi:type="simplepdl:Material" name="Tap Water" unit="ml"/>
+  <resources xsi:type="simplepdl:Material" name="Ceramic Mug" unit="item"/>
+</simplepdl:Process>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="project" version="12.0.0.2017041100">
+  <ownedViewpoints name="SimplePdlElements">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Simplepdl Diagram" label="Simplepdl Diagram" titleExpression="aql:'Process: ' + self.name" domainClass="simplepdl::Process" rootExpression="aql:self.eAllContents(simplepdl:pProcess)" enablePopupBars="true">
+      <metamodel href="http://www.example.org/simplepdl#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="WorkDefinition" domainClass="simplepdl::WorkDefinition">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="12" tooltipExpression="feature:name" resizeKind="NSEW" width="8" height="8">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Human" domainClass="simplepdl::Human">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" tooltipExpression="feature:name" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/my.project.design/icons/person-standing.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Material" domainClass="simplepdl::Material">
+          <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" resizeKind="NSEW" workspacePath="/my.project.design/icons/package.svg">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="WorkSequence" domainClass="simplepdl::WorkSequence">
+          <style xsi:type="style:DotDescription" labelSize="12" labelExpression="feature:linkType" sizeComputationExpression="6" resizeKind="NSEW" strokeSizeComputationExpression="6">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="RequiredMaterialNode" semanticCandidatesExpression="feature:requiredmaterial" domainClass="simplepdl::RequiredMaterial">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="feature:quantity" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="AssignmentLink" label="AssignmentLink" sourceMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']" targetMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='Human']" targetFinderExpression="feature:assignedTo">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="WorkDefintionToRequireMaterial" label="WorkDefintionToRequireMaterial" sourceMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']" targetFinderExpression="feature:requiredmaterial">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" iconPath="/my.project.design/icons/spline.svg">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="WorkDefintionToWorkSequence" label="WorkDefintionToWorkSequence" sourceMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']" targetMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkSequence']" targetFinderExpression="feature:linksToSuccessor">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="predecessor">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="WorkDefinitionSequenceToWorkSequenceSuccessor" label="WorkDefinitionSequenceToWorkSequenceSuccessor" sourceMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']" targetMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkSequence']" targetFinderExpression="feature:linksToPredecessor">
+          <style sourceArrow="InputArrow" targetArrow="NoDecoration" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="successor">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="WorkDefintion2Requirematerials" sourceMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']" targetMapping="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='RequiredMaterialNode']" targetFinderExpression="feature:requiredmaterial">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="WorkDefinition" semanticCandidatesExpression="feature:processElements" domainClass="simplepdl::WorkDefinition">
+          <subNodeMappings name="RequiredMaterialNode" semanticCandidatesExpression="feature:requiredmaterial" domainClass="simplepdl::RequiredMaterial">
+            <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="feature:quantity" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:ShapeContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Resources">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Human" label="Human" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='Human']" iconPath="/my.project.design/icons/person-standing.svg">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl.Human" referenceName="resources"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Material" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='Material']" iconPath="/my.project.design/icons/package.svg">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::Material" referenceName="resources"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Process Element">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="WorkDefinition" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkDefinition']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::WorkDefinition" referenceName="processElements" variableName="newElement">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="WorkSequence" label="WorkSequence" elementsToSelect="feature:processElements" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='WorkSequence']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::WorkSequence" referenceName="processElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="predecessor" valueExpression="feature:predecessor"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="successor" valueExpression="feature:successor"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="RequireMaterial" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@nodeMappings[name='RequiredMaterialNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:simplepdl::WorkDefinition">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::RequiredMaterial" referenceName="requiredmaterial" variableName="requirematerial"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connections" label="Connections">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign Human" edgeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@edgeMappings[name='AssignmentLink']" iconPath="/my.project.design/icons/person-standing.svg">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="assignedTo" valueExpression="aql:source.assignedTo->including(target)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Predecessor" edgeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@edgeMappings[name='WorkDefintionToWorkSequence']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="linksToSuccessor" valueExpression="aql:source.linksToSuccessor->including(target)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Successor" edgeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@edgeMappings[name='WorkDefinitionSequenceToWorkSequenceSuccessor']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="linksToPredecessor" valueExpression="aql:source.linksToPredecessor->including(target)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Link Material">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="WorkDefinition2Requirematerials" edgeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@edgeMappings[name='WorkDefintion2Requirematerials']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:SetValue" featureName="requiredmaterial" valueExpression="aql:source.requiredmaterial->including(target)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Work Definition Tools">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="CreateRequiredMaterialTool" label="Create Required Material" precondition="[aql:container.oclIsKindOf(simplepdl::WorkDefinition)/]" nodeMappings="//@ownedViewpoints[name='SimplePdlElements']/@ownedRepresentations[name='Simplepdl%20Diagram']/@defaultLayer/@containerMappings[name='WorkDefinition']/@subNodeMappings[name='RequiredMaterialNode']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::RequiredMaterial" referenceName="requiredmaterial" variableName="element">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="quantity" valueExpression="1"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="WorkDefinition Diagram" domainClass="simplepdl::WorkDefinition" enablePopupBars="true">
+      <defaultLayer name="Default"/>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.project.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
