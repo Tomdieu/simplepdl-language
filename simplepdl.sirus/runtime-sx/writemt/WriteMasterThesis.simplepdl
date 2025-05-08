@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://www.example.org/simplepdl" name="Committee Member">
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Define Topic &amp; Proposal" linksToSuccessor="//@processElements.7" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Conduct Research &amp; Literature Review" linksToSuccessor="//@processElements.8" linksToPredecessor="//@processElements.7" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Write First Draft (Chapters)" linksToSuccessor="//@processElements.9" linksToPredecessor="//@processElements.8" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Supervisor Review &amp; Revision Cycle" linksToSuccessor="//@processElements.10" linksToPredecessor="//@processElements.9" assignedTo="//@resources.1 //@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Format Thesis" linksToSuccessor="//@processElements.11" linksToPredecessor="//@processElements.10" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Committee Review &amp; Defense" linksToSuccessor="//@processElements.12" linksToPredecessor="//@processElements.11" assignedTo="//@resources.2 //@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" name="Final Revisions &amp; Submission" linksToPredecessor="//@processElements.12" assignedTo="//@resources.0"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.0" successor="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.1" successor="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.2" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.3" successor="//@processElements.4"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.4" successor="//@processElements.5"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.5" successor="//@processElements.6"/>
+  <resources xsi:type="simplepdl:Human" name="Student Researcher" asignedTasks="//@processElements.0 //@processElements.1 //@processElements.2 //@processElements.3 //@processElements.4 //@processElements.5 //@processElements.6"/>
+  <resources xsi:type="simplepdl:Human" name="Primary Supervisor" asignedTasks="//@processElements.3"/>
+  <resources xsi:type="simplepdl:Human" name="Committee Member" asignedTasks="//@processElements.5"/>
+  <resources xsi:type="simplepdl:Material" name="Research Databases"/>
+  <resources xsi:type="simplepdl:Material" name="Citation Manager Software"/>
+  <resources xsi:type="simplepdl:Material" name="Word Processor/LaTeX"/>
+  <resources xsi:type="simplepdl:Material" name="University Thesis Template"/>
+  <resources xsi:type="simplepdl:Material" name="Thesis Submission Portal"/>
+</simplepdl:Process>
