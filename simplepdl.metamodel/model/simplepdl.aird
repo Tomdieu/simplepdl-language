@@ -9,7 +9,7 @@
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="simplepdl.ecore#/"/>
       </ownedRepresentationDescriptors>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MXCn4CgbEfCstLWmJPQUag" name="simplepdl class diagram" repPath="#_MWRy4CgbEfCstLWmJPQUag" changeId="1746281577562">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_MXCn4CgbEfCstLWmJPQUag" name="simplepdl class diagram" repPath="#_MWRy4CgbEfCstLWmJPQUag" changeId="1746721279641">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="simplepdl.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1180,8 +1180,8 @@
       <ownedElements xmi:type="diagram:DNodeListElement" uid="_clSbUSgfEfCstLWmJPQUag" name="name : EString" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="simplepdl.ecore#//ProcessElement/name"/>
         <semanticElements xmi:type="ecore:EAttribute" href="simplepdl.ecore#//ProcessElement/name"/>
-        <ownedStyle xmi:type="diagram:BundledImage" uid="_jS1RYSgfEfCstLWmJPQUag" labelAlignment="LEFT">
-          <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
+        <ownedStyle xmi:type="diagram:BundledImage" uid="_eW2FISwoEfCUvLokQ8oVxQ" labelAlignment="LEFT" description="_clQmICgfEfCstLWmJPQUag">
+          <labelFormat>bold</labelFormat>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
