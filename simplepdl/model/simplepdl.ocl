@@ -39,12 +39,18 @@ inv MaterialDefined: not self.material.oclIsUndefined()
 -- 9. No Duplicate Resource Names in a Process
 context Process
 inv UniqueResourceNames: 
-    self.resources->isUnique(r | r.name)
+    self.resources->forAll(r1, r2 |
+        r1 <> r2 implies r1.name <> r2.name
+    )
 
 -- 10. No Duplicate WorkDefinition Names in a Process
 context Process
 inv UniqueWorkDefinitionNames:
-    self.processElements->select(e | e.oclIsTypeOf(WorkDefinition))->isUnique(wd | wd.name)
+    self.processElements
+        ->select(e | e.oclIsTypeOf(WorkDefinition))
+        ->forAll(w1, w2 |
+            w1 <> w2 implies w1.name <> w2.name
+        )
 
 -- 11. No Self-Referencing WorkSequence
 context WorkSequence

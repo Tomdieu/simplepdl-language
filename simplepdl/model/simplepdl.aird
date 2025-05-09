@@ -5,6 +5,8 @@
     <semanticResources>simplepdl.genmodel</semanticResources>
     <semanticResources>../instances/PrepareBreakfast.xmi</semanticResources>
     <semanticResources>../instances/WriteMasterThesis.xmi</semanticResources>
+    <semanticResources>../instances/test.xmi</semanticResources>
+    <semanticResources>../instances/WriteMasterThesis2.xmi</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_Y-bmMCgbEfCstLWmJPQUag">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_Y_NpUCgbEfCstLWmJPQUag" name="simplepdl" repPath="#_Y_J-8CgbEfCstLWmJPQUag" changeId="1746276141188">
