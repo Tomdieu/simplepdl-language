@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link simplepdl.WorkDefinition#getLinksToSuccessor <em>Links To Successor</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getLinksToPredecessor <em>Links To Predecessor</em>}</li>
- *   <li>{@link simplepdl.WorkDefinition#getRequiredmaterial <em>Requiredmaterial</em>}</li>
  *   <li>{@link simplepdl.WorkDefinition#getAssignedTo <em>Assigned To</em>}</li>
+ *   <li>{@link simplepdl.WorkDefinition#getRequiredmaterial <em>Requiredmaterial</em>}</li>
  * </ul>
  *
  * @see simplepdl.SimplepdlPackage#getWorkDefinition()
@@ -53,13 +53,13 @@ public interface WorkDefinition extends ProcessElement {
 	EList<WorkSequence> getLinksToPredecessor();
 
 	/**
-	 * Returns the value of the '<em><b>Requiredmaterial</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Requiredmaterial</b></em>' reference list.
 	 * The list contents are of type {@link simplepdl.RequiredMaterial}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Requiredmaterial</em>' containment reference list.
+	 * @return the value of the '<em>Requiredmaterial</em>' reference list.
 	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_Requiredmaterial()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<RequiredMaterial> getRequiredmaterial();

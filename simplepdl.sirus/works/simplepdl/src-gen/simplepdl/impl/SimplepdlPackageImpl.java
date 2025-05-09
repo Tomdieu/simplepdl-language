@@ -282,7 +282,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 	 */
 	@Override
 	public EReference getWorkDefinition_Requiredmaterial() {
-		return (EReference) workDefinitionEClass.getEStructuralFeatures().get(2);
+		return (EReference) workDefinitionEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -292,7 +292,7 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 	 */
 	@Override
 	public EReference getWorkDefinition_AssignedTo() {
-		return (EReference) workDefinitionEClass.getEStructuralFeatures().get(3);
+		return (EReference) workDefinitionEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -490,8 +490,8 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		workDefinitionEClass = createEClass(WORK_DEFINITION);
 		createEReference(workDefinitionEClass, WORK_DEFINITION__LINKS_TO_SUCCESSOR);
 		createEReference(workDefinitionEClass, WORK_DEFINITION__LINKS_TO_PREDECESSOR);
-		createEReference(workDefinitionEClass, WORK_DEFINITION__REQUIREDMATERIAL);
 		createEReference(workDefinitionEClass, WORK_DEFINITION__ASSIGNED_TO);
+		createEReference(workDefinitionEClass, WORK_DEFINITION__REQUIREDMATERIAL);
 
 		workSequenceEClass = createEClass(WORK_SEQUENCE);
 		createEAttribute(workSequenceEClass, WORK_SEQUENCE__LINK_TYPE);
@@ -548,10 +548,11 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		workDefinitionEClass.getESuperTypes().add(this.getProcessElement());
 		workSequenceEClass.getESuperTypes().add(this.getProcessElement());
 		humanEClass.getESuperTypes().add(this.getResource());
+		requiredMaterialEClass.getESuperTypes().add(this.getProcessElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(resourceEClass, Resource.class, "Resource", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 1, 1, Resource.class, !IS_TRANSIENT,
+		initEAttribute(getResource_Name(), ecorePackage.getEString(), "name", null, 0, 1, Resource.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(processEClass, simplepdl.Process.class, "Process", !IS_ABSTRACT, !IS_INTERFACE,
@@ -581,11 +582,11 @@ public class SimplepdlPackageImpl extends EPackageImpl implements SimplepdlPacka
 		initEReference(getWorkDefinition_LinksToPredecessor(), this.getWorkSequence(), this.getWorkSequence_Successor(),
 				"linksToPredecessor", null, 0, -1, WorkDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				!IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getWorkDefinition_Requiredmaterial(), this.getRequiredMaterial(), null, "requiredmaterial", null,
-				0, -1, WorkDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE,
-				!IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getWorkDefinition_AssignedTo(), this.getHuman(), this.getHuman_AsignedTasks(), "assignedTo",
 				null, 1, -1, WorkDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
+				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getWorkDefinition_Requiredmaterial(), this.getRequiredMaterial(), null, "requiredmaterial", null,
+				0, -1, WorkDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE,
 				IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workSequenceEClass, WorkSequence.class, "WorkSequence", !IS_ABSTRACT, !IS_INTERFACE,

@@ -28,7 +28,7 @@ public interface Resource extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see simplepdl.SimplepdlPackage#getResource_Name()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	String getName();

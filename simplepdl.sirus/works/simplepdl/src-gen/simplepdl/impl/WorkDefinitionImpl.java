@@ -10,8 +10,7 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,8 +30,8 @@ import simplepdl.WorkSequence;
  * <ul>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToSuccessor <em>Links To Successor</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getLinksToPredecessor <em>Links To Predecessor</em>}</li>
- *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getRequiredmaterial <em>Requiredmaterial</em>}</li>
  *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getAssignedTo <em>Assigned To</em>}</li>
+ *   <li>{@link simplepdl.impl.WorkDefinitionImpl#getRequiredmaterial <em>Requiredmaterial</em>}</li>
  * </ul>
  *
  * @generated
@@ -59,16 +58,6 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	protected EList<WorkSequence> linksToPredecessor;
 
 	/**
-	 * The cached value of the '{@link #getRequiredmaterial() <em>Requiredmaterial</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRequiredmaterial()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<RequiredMaterial> requiredmaterial;
-
-	/**
 	 * The cached value of the '{@link #getAssignedTo() <em>Assigned To</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -77,6 +66,16 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 * @ordered
 	 */
 	protected EList<Human> assignedTo;
+
+	/**
+	 * The cached value of the '{@link #getRequiredmaterial() <em>Requiredmaterial</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRequiredmaterial()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<RequiredMaterial> requiredmaterial;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -133,7 +132,7 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	@Override
 	public EList<RequiredMaterial> getRequiredmaterial() {
 		if (requiredmaterial == null) {
-			requiredmaterial = new EObjectContainmentEList<RequiredMaterial>(RequiredMaterial.class, this,
+			requiredmaterial = new EObjectResolvingEList<RequiredMaterial>(RequiredMaterial.class, this,
 					SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL);
 		}
 		return requiredmaterial;
@@ -185,8 +184,6 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			return ((InternalEList<?>) getLinksToSuccessor()).basicRemove(otherEnd, msgs);
 		case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_PREDECESSOR:
 			return ((InternalEList<?>) getLinksToPredecessor()).basicRemove(otherEnd, msgs);
-		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
-			return ((InternalEList<?>) getRequiredmaterial()).basicRemove(otherEnd, msgs);
 		case SimplepdlPackage.WORK_DEFINITION__ASSIGNED_TO:
 			return ((InternalEList<?>) getAssignedTo()).basicRemove(otherEnd, msgs);
 		}
@@ -205,10 +202,10 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			return getLinksToSuccessor();
 		case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_PREDECESSOR:
 			return getLinksToPredecessor();
-		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
-			return getRequiredmaterial();
 		case SimplepdlPackage.WORK_DEFINITION__ASSIGNED_TO:
 			return getAssignedTo();
+		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
+			return getRequiredmaterial();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -230,13 +227,13 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			getLinksToPredecessor().clear();
 			getLinksToPredecessor().addAll((Collection<? extends WorkSequence>) newValue);
 			return;
-		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
-			getRequiredmaterial().clear();
-			getRequiredmaterial().addAll((Collection<? extends RequiredMaterial>) newValue);
-			return;
 		case SimplepdlPackage.WORK_DEFINITION__ASSIGNED_TO:
 			getAssignedTo().clear();
 			getAssignedTo().addAll((Collection<? extends Human>) newValue);
+			return;
+		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
+			getRequiredmaterial().clear();
+			getRequiredmaterial().addAll((Collection<? extends RequiredMaterial>) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -256,11 +253,11 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 		case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_PREDECESSOR:
 			getLinksToPredecessor().clear();
 			return;
-		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
-			getRequiredmaterial().clear();
-			return;
 		case SimplepdlPackage.WORK_DEFINITION__ASSIGNED_TO:
 			getAssignedTo().clear();
+			return;
+		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
+			getRequiredmaterial().clear();
 			return;
 		}
 		super.eUnset(featureID);
@@ -278,10 +275,10 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 			return linksToSuccessor != null && !linksToSuccessor.isEmpty();
 		case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_PREDECESSOR:
 			return linksToPredecessor != null && !linksToPredecessor.isEmpty();
-		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
-			return requiredmaterial != null && !requiredmaterial.isEmpty();
 		case SimplepdlPackage.WORK_DEFINITION__ASSIGNED_TO:
 			return assignedTo != null && !assignedTo.isEmpty();
+		case SimplepdlPackage.WORK_DEFINITION__REQUIREDMATERIAL:
+			return requiredmaterial != null && !requiredmaterial.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

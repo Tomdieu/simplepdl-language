@@ -134,6 +134,8 @@ public class SimplepdlSwitch<T> extends Switch<T> {
 			RequiredMaterial requiredMaterial = (RequiredMaterial) theEObject;
 			T result = caseRequiredMaterial(requiredMaterial);
 			if (result == null)
+				result = caseProcessElement(requiredMaterial);
+			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}

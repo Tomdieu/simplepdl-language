@@ -8,8 +8,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import simplepdl.Material;
 import simplepdl.RequiredMaterial;
 import simplepdl.SimplepdlPackage;
@@ -28,7 +26,7 @@ import simplepdl.SimplepdlPackage;
  *
  * @generated
  */
-public class RequiredMaterialImpl extends MinimalEObjectImpl.Container implements RequiredMaterial {
+public class RequiredMaterialImpl extends ProcessElementImpl implements RequiredMaterial {
 	/**
 	 * The cached value of the '{@link #getMaterial() <em>Material</em>}' reference.
 	 * <!-- begin-user-doc -->

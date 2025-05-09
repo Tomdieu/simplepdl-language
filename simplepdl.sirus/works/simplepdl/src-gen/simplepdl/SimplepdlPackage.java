@@ -297,22 +297,22 @@ public interface SimplepdlPackage extends EPackage {
 	int WORK_DEFINITION__LINKS_TO_PREDECESSOR = PROCESS_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Requiredmaterial</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int WORK_DEFINITION__REQUIREDMATERIAL = PROCESS_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Assigned To</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int WORK_DEFINITION__ASSIGNED_TO = PROCESS_ELEMENT_FEATURE_COUNT + 3;
+	int WORK_DEFINITION__ASSIGNED_TO = PROCESS_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Requiredmaterial</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WORK_DEFINITION__REQUIREDMATERIAL = PROCESS_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Work Definition</em>' class.
@@ -480,13 +480,31 @@ public interface SimplepdlPackage extends EPackage {
 	int REQUIRED_MATERIAL = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_MATERIAL__NAME = PROCESS_ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_MATERIAL__DESCRIPTION = PROCESS_ELEMENT__DESCRIPTION;
+
+	/**
 	 * The feature id for the '<em><b>Material</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_MATERIAL__MATERIAL = 0;
+	int REQUIRED_MATERIAL__MATERIAL = PROCESS_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
@@ -495,7 +513,7 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_MATERIAL__QUANTITY = 1;
+	int REQUIRED_MATERIAL__QUANTITY = PROCESS_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Required Material</em>' class.
@@ -504,7 +522,7 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_MATERIAL_FEATURE_COUNT = 2;
+	int REQUIRED_MATERIAL_FEATURE_COUNT = PROCESS_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Required Material</em>' class.
@@ -513,7 +531,7 @@ public interface SimplepdlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_MATERIAL_OPERATION_COUNT = 0;
+	int REQUIRED_MATERIAL_OPERATION_COUNT = PROCESS_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link simplepdl.WorkSequenceType <em>Work Sequence Type</em>}' enum.
@@ -654,10 +672,10 @@ public interface SimplepdlPackage extends EPackage {
 	EReference getWorkDefinition_LinksToPredecessor();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link simplepdl.WorkDefinition#getRequiredmaterial <em>Requiredmaterial</em>}'.
+	 * Returns the meta object for the reference list '{@link simplepdl.WorkDefinition#getRequiredmaterial <em>Requiredmaterial</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Requiredmaterial</em>'.
+	 * @return the meta object for the reference list '<em>Requiredmaterial</em>'.
 	 * @see simplepdl.WorkDefinition#getRequiredmaterial()
 	 * @see #getWorkDefinition()
 	 * @generated
@@ -963,7 +981,7 @@ public interface SimplepdlPackage extends EPackage {
 		EReference WORK_DEFINITION__LINKS_TO_PREDECESSOR = eINSTANCE.getWorkDefinition_LinksToPredecessor();
 
 		/**
-		 * The meta object literal for the '<em><b>Requiredmaterial</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Requiredmaterial</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

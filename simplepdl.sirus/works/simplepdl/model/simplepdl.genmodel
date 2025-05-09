@@ -30,8 +30,8 @@
     <genClasses ecoreClass="simplepdl.ecore#//WorkDefinition">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/linksToSuccessor"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/linksToPredecessor"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/requiredmaterial"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/assignedTo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference simplepdl.ecore#//WorkDefinition/requiredmaterial"/>
     </genClasses>
     <genClasses ecoreClass="simplepdl.ecore#//WorkSequence">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute simplepdl.ecore#//WorkSequence/linkType"/>

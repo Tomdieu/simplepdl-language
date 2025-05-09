@@ -2,8 +2,6 @@
  */
 package simplepdl;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Required Material</b></em>'.
@@ -21,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface RequiredMaterial extends EObject {
+public interface RequiredMaterial extends ProcessElement {
 	/**
 	 * Returns the value of the '<em><b>Material</b></em>' reference.
 	 * <!-- begin-user-doc -->

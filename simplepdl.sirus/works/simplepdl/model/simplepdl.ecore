@@ -2,7 +2,7 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="simplepdl" nsURI="http://www.example.org/simplepdl" nsPrefix="simplepdl">
   <eClassifiers xsi:type="ecore:EClass" name="Resource" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Process">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -20,10 +20,10 @@
         eType="#//WorkSequence" eOpposite="#//WorkSequence/predecessor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linksToPredecessor" upperBound="-1"
         eType="#//WorkSequence" eOpposite="#//WorkSequence/successor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredmaterial" upperBound="-1"
-        eType="#//RequiredMaterial" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="assignedTo" lowerBound="1"
         upperBound="-1" eType="#//Human" eOpposite="#//Human/asignedTasks"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredmaterial" upperBound="-1"
+        eType="#//RequiredMaterial"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkSequence" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkType" lowerBound="1"
@@ -49,7 +49,7 @@
     <eLiterals name="startToFinish"/>
     <eLiterals name="finishToFInish"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RequiredMaterial">
+  <eClassifiers xsi:type="ecore:EClass" name="RequiredMaterial" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
